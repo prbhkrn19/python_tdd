@@ -35,7 +35,10 @@ class NewVisitorTest(unittest.TestCase):
 
         table = self.browser.find_element(By.ID, "id_list_table")
         rows = table.find_elements(By.TAG_NAME, "tr")
-        self.assertTrue(any(row.text == "1: Buy toothbrush" for row in rows))
+        self.assertTrue(
+            any(row.text == "1: Buy toothbrush" for row in rows),
+            "New to do item does not appear",
+        )
         self.fail("Finish the test!")
 
         # There is still a text box inviting him to add another entry. He adds "Brush with the new toothbrush"
